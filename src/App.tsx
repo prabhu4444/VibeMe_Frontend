@@ -1,12 +1,18 @@
-import { Button } from "@/components/ui/button";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import Auth from "./pages/auth";
+import Profile from "./pages/profile";
+import Chat from "./pages/chat";
 
 function App() {
-  // const [count, setCount] = useState(0)
-
   return (
-    <>
-      <Button>Click Me</Button>
-    </>
+   <BrowserRouter>
+    <Routes>
+      <Route path="/auth" element={<Auth />} />
+      <Route path="*" element={<Navigate to="/auth" />} />
+      <Route path="/profile" element={<Profile />} />
+      <Route path="/chat" element={<Chat />} />
+    </Routes>
+   </BrowserRouter>
   );
 }
 
